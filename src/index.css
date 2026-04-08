@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 151 100% 50%;
+    --primary-foreground: 0 0% 2%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 151 100% 50%;
+    --accent-foreground: 0 0% 2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 151 100% 50%;
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --glass-bg: 0 0% 100% / 0.04;
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-hover: 0 0% 100% / 0.08;
+    --neon-glow: 151 100% 50%;
+    --surface-1: 0 0% 6%;
+    --surface-2: 0 0% 9%;
+    --surface-3: 0 0% 12%;
+    --text-dim: 0 0% 40%;
+    --text-secondary: 0 0% 65%;
+    --gradient-primary: linear-gradient(135deg, hsl(151 100% 50%), hsl(180 100% 50%));
+    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 5%));
+  }
+
+  .theme-light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 95%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 95%;
+    --popover-foreground: 0 0% 9%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 35%;
+    --border: 0 0% 86%;
+    --input: 0 0% 86%;
+
+    --glass-bg: 0 0% 0% / 0.03;
+    --glass-border: 0 0% 0% / 0.1;
+    --glass-hover: 0 0% 0% / 0.06;
+
+    --surface-1: 0 0% 96%;
+    --surface-2: 0 0% 92%;
+    --surface-3: 0 0% 88%;
+    --text-dim: 0 0% 55%;
+    --text-secondary: 0 0% 30%;
+    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 95%), hsl(0 0% 100%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsla(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--glass-border));
+  }
+
+  .glass-strong {
+    background: hsla(0 0% 100% / 0.06);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid hsla(0 0% 100% / 0.1);
+  }
+
+  .glass-hover:hover {
+    background: hsla(var(--glass-hover));
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px hsla(var(--neon-glow) / 0.3),
+      0 0 60px hsla(var(--neon-glow) / 0.1);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 20px hsla(var(--neon-glow) / 0.5),
+      0 0 40px hsla(var(--neon-glow) / 0.2);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsla(0 0% 100% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(0 0% 100% / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .dot-bg {
+    background-image: radial-gradient(hsla(0 0% 100% / 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .heading-xl {
+    @apply text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-none;
+  }
+
+  .heading-lg {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;
+  }
+
+  .body-text {
+    @apply text-base md:text-lg leading-relaxed;
+    color: hsl(var(--text-secondary));
+  }
+
+  .label-text {
+    @apply text-xs md:text-sm font-medium tracking-widest uppercase;
+    color: hsl(var(--text-dim));
+  }
+
+  .tape-banner {
+    @apply py-3 text-sm font-bold tracking-widest uppercase;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: rotate(-1deg);
+  }
+
+  .marquee-strip {
+    @apply py-4 overflow-hidden whitespace-nowrap;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .floating-element {
+    @apply absolute pointer-events-none select-none opacity-20;
+  }
+
+  .card-project {
+    @apply glass rounded-2xl overflow-hidden transition-all duration-500;
+  }
+
+  .card-project:hover {
+    @apply neon-glow;
+    border-color: hsla(var(--neon-glow) / 0.3);
+    transform: translateY(-4px);
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradientMove 8s ease infinite;
+}
+
+
+.kigif {}
+
+.kigif:hover {
+  background: url('https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/yu.gif');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.15);
+  background-size: cover;
+
+
+
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.track img {
+  height: 450px;
+  margin-right: 20px;
+}
+
+/* animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.kigif {
+  font-weight: bold;
+  color: transparent;
+
+  background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g8.gif");
+  background-size: cover;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: moveBg 6s linear infinite;
+}
+
+/* animation */
+@keyframes moveBg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.klk {
+  font-weight: bold;
+  color: transparent;
+  font-size: 230px;
+  background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g6.gif");
+  background-size: cover;
+  background-position: center 50%;
+  background-position-x: 860px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+/* 📱 Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .klk {
+    font-weight: bold;
+    color: transparent;
+    font-size: 230px;
+    background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g6.gif");
+    background-size: cover;
+    background-position: center 40%;
+    background-position-x: 200px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+}
+
+/* 📱 Small mobile */
+@media (max-width: 480px) {
+  .klk {
+    font-size: 80px;
+  }
+}
+
+.thani {
+  color: transparent;
+  background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g3.gif");
+  background-size: cover;
+  background-position: center 50%;
+  background-position-x: 860px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
