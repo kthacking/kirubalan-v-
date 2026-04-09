@@ -29,7 +29,7 @@ const skillsData = [
   { name: "Lucky Patcher", category: "Security", slug: "android", color: "#3DDC84" },
   { name: "Git", category: "Version Control", slug: "git", color: "#F05032" },
   { name: "GitHub", category: "Version Control", slug: "github", color: "#181717" },
-  { name: "Word", category: "Microsoft", slug: "microsoftword", color: "#2B579A" },
+  { name: "Word", category: "Microsoft", slug: "microsoftword", color: "#5798faff" },
   { name: "Excel", category: "Microsoft", slug: "microsoftexcel", color: "#217346" },
   { name: "PowerPoint", category: "Microsoft", slug: "microsoftpowerpoint", color: "#B7472A" },
   { name: "Photoshop", category: "Creative", slug: "adobephotoshop", color: "#31A8FF" },
@@ -66,41 +66,45 @@ const STYLES = `
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 48px;
-  height: 48px;
-  margin-top: -24px;
-  margin-left: -24px;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  margin-left: -26px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(16, 20, 30, 0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(10, 15, 25, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05);
   cursor: pointer;
   z-index: 10;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform, box-shadow;
 }
 
 .skill-node:hover {
   z-index: 50 !important;
-  background: rgba(20, 25, 40, 0.85);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 20px var(--node-color, rgba(255,255,255,0.4));
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--node-color, rgba(255,255,255,0.4));
+  box-shadow: 0 0 25px var(--node-color, rgba(255,255,255,0.3)), 
+              inset 0 0 15px var(--node-color, rgba(255,255,255,0.1));
+  transform: scale(1.1) translateY(-5px);
 }
 
 .skill-node img {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.3));
-  transition: transform 0.3s ease;
+  filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 2px rgba(0,0,0,0.5));
+  transition: all 0.3s ease;
 }
 
 .skill-node:hover img {
-  transform: scale(1.15);
+  transform: scale(1.1);
+  filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 4px var(--node-color, rgba(255,255,255,0.8)));
 }
 
 .skill-tooltip {

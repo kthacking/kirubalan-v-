@@ -59,14 +59,14 @@ const YouTubeSection = () => (
             <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
             {/* Ambient light glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-[#FFE800]/20 blur-[70px]"></div>
-            <img src={assetsMap['1775494829Jpg']} alt="" />
+            <img src={assetsMap['1775494829Jpg']} alt="" loading="lazy" />
           </div>
           
           {/* Channel Info */}
           <div className="px-6 md:px-12 pb-8 md:pb-12 relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 -mt-16 md:-mt-20">
             {/* Avatar */}
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-background bg-zinc-900 flex items-center justify-center overflow-hidden shadow-xl relative z-10 flex-shrink-0">
-            <img src="public/photos/cp.jpg" alt="" />
+            <img src="public/photos/cp.jpg" alt="" loading="lazy" />
             </div>
 
             {/* Stats & Actions */}

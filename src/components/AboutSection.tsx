@@ -69,22 +69,21 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="carousel">
-  <div className="track">
-    <img src={assetsMap['g6']} />
-    <img src={assetsMap['g7']} />
-    <img src={assetsMap['g2']} />
-    <img src={assetsMap['g13']} />
-    <img src={assetsMap['g14']} />
+          <div className="track">
+            <img src={assetsMap['g6']} loading="lazy" />
+            <img src={assetsMap['g7']} loading="lazy" />
+            <img src={assetsMap['g2']} loading="lazy" />
+            <img src={assetsMap['g13']} loading="lazy" />
+            <img src={assetsMap['g14']} loading="lazy" />
 
-    {/* duplicate for smooth loop */}
-    <img src={assetsMap['g6']} />
-    <img src={assetsMap['g7']} />
-    <img src={assetsMap['g2']} />
-    <img src={assetsMap['g13']} />
-    <img src={assetsMap['g14']} />
-  </div>
-</div>
-
+            {/* duplicate for smooth loop */}
+            <img src={assetsMap['g6']} loading="lazy" />
+            <img src={assetsMap['g7']} loading="lazy" />
+            <img src={assetsMap['g2']} loading="lazy" />
+            <img src={assetsMap['g13']} loading="lazy" />
+            <img src={assetsMap['g14']} loading="lazy" />
+          </div>
+        </div>
       </div>
     </section>
   );

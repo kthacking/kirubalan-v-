@@ -13,9 +13,8 @@ const RootComponent = () => {
     const imgRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        fetchAssetsMap().then(() => {
-            // Small delay to ensure App + HeroSection have mounted and rendered
-            setTimeout(() => setLoaded(true), 800);
+        fetchAssetsMap().finally(() => {
+            setLoaded(true);
         });
     }, []);
 

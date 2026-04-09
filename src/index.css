@@ -259,17 +259,30 @@
 }
 
 
-.kigif {}
-
-.kigif:hover {
-  background: url('https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/yu.gif');
+.kt {
+  display: inline-block;
+  font-weight: 900;
+  background-size: cover;
+  background-position: center;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transform: scale(1.15);
-  background-size: cover;
+  color: transparent;
+  transition: transform 0.3s ease;
+  filter: saturate(1.2) contrast(1.1);
+}
 
+.kt:hover {
+  transform: scale(1.02);
+}
 
+.kigif {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
 
+.kigif:hover {
+  transform: translateY(-5px) scale(1.1);
 }
 
 .flip-card {
@@ -328,7 +341,7 @@
 }
 
 
-.kigif {
+.kigif-legacy {
   font-weight: bold;
   color: transparent;
 
@@ -354,31 +367,24 @@
 }
 
 .klk {
-  font-weight: bold;
+  font-weight: 900;
   color: transparent;
-  font-size: 230px;
-  background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g6.gif");
-  background-size: cover;
-  background-position: center 50%;
-  background-position-x: 860px;
+  font-size: 180px;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
 
+@media (max-width: 1024px) {
+  .klk {
+    font-size: 140px;
+  }
 }
 
 /* 📱 Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   .klk {
-    font-weight: bold;
-    color: transparent;
-    font-size: 230px;
-    background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g6.gif");
-    background-size: cover;
-    background-position: center 40%;
-    background-position-x: 200px;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
+    font-size: 100px;
   }
 }
 
@@ -391,10 +397,7 @@
 
 .thani {
   color: transparent;
-  background: url("https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/g3.gif");
-  background-size: cover;
-  background-position: center 50%;
-  background-position-x: 860px;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+}

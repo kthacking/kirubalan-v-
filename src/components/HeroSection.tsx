@@ -50,7 +50,7 @@ const HeroSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text */}
-          <div>
+          <div className="md:w-full lg:w-4/5 text-left">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,18 +66,32 @@ const HeroSection = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="heading-xl mb-6"
             >
-              <span className="kt">
-                <span className="kigif text-gradient font-bold font-style:;">K</span>
-                <span className="kigif text-gradient font-bold">I</span>
-                <span className="kigif text-gradient font-bold">R</span>
-                <span className="kigif text-gradient font-bold">U</span>
-                <span className="kigif text-gradient font-bold">B</span>
-                <span className="kigif text-gradient font-bold">A</span>
-                <span className="kigif text-gradient font-bold">L</span>
-                <span className="kigif text-gradient font-bold">A</span>
-                <span className="kigif text-gradient font-bold">N</span>
+              <span 
+                className="kt whitespace-nowrap block mb-2" 
+                style={{ 
+                  backgroundImage: `url(${assetsMap['g8']})`,
+                  animation: 'moveBg 12s linear infinite'
+                }}
+              >
+                {[..."KIRUBALAN"].map((letter, i) => (
+                  <span key={i} className="kigif">{letter}</span>
+                ))}
               </span>
-              <span className="klk block text-gradient">V</span>
+              <span 
+                className="klk block leading-none"
+                style={{ 
+                  backgroundImage: `url('https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/yu.gif')`,
+                  backgroundSize: 'cover',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                  WebkitTextFillColor: 'transparent',
+                  animation: 'moveBg 8s linear infinite reverse'
+                }}
+              >
+                V
+              </span>
+
             </motion.h1>
 
             <motion.p
@@ -127,8 +141,14 @@ const HeroSection = () => {
                   <div className="flip-inner shadow-2xl rounded-2xl">
 
                     {/* Front Side */}
-                    <div className="flip-front rounded-2xl overflow-hidden glass  border border-white/10 relative" style={{ background: `url(${assetsMap['g10']})`, backgroundPosition: "center", backgroundSize: "cover", backgroundPositionX: "-90px" }}>
-                      <img src={heroPhoto} alt="Kirubalan V" className="w-full h-full object-cover " />
+                    <div className="flip-front rounded-2xl overflow-hidden glass border border-white/10 relative" style={{ background: assetsMap['g10'] ? `url(${assetsMap['g10']})` : 'rgba(255,255,255,0.05)', backgroundPosition: "center", backgroundSize: "cover", backgroundPositionX: "[180px]" }}>
+                      <img 
+                        src={heroPhoto} 
+                        alt="Kirubalan V" 
+                        className="w-full h-full object-cover" 
+                        loading="eager" 
+                        fetchPriority="high"
+                      />
                     </div>
 
                     {/* Back Side */}
