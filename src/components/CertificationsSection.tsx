@@ -3,6 +3,7 @@ import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import { Award, X, ZoomIn, Star } from "lucide-react";
 import { supabase } from '../lib/supabase';
+import cardFrame from "@/assets/cardframe.png";
 
 const CertificationsSection = () => {
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
@@ -169,22 +170,33 @@ const CertificationsSection = () => {
         </div>
 
         {/* Achievements Section */}
-        <ScrollReveal>
-          <SectionLabel number="10" label="Achievements & Milestones" />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="heading-lg mb-12">
-            <span className="text-gradient">Milestones</span> unlocked.
-          </h2>
-        </ScrollReveal>
+        <div className="relative bg-[#030303] rounded-[48px] mt-32 py-24 px-4 md:px-12 overflow-hidden border border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+          {/* Subtle Ambient Glows - Orange & Red Mix */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,80,0,0.06)_0%,transparent_60%)] pointer-events-none will-change-[opacity]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(220,38,38,0.05)_0%,transparent_60%)] pointer-events-none will-change-[opacity]" />
 
-        <div className="relative max-w-5xl mx-auto py-10 mt-8 border-t border-border/50 md:border-none pt-12 md:pt-10">
-          <div className="absolute top-0 bottom-0 left-[24px] md:left-1/2 w-[2px] -translate-x-[1px] bg-gradient-to-b from-primary/50 via-primary/10 to-transparent z-0" />
-          
-          <div className="space-y-12 md:space-y-24">
-            {ACHIEVEMENTS.map((a, i) => (
-              <TimelineItem key={a.title} a={a} i={i} gifBg={gifs['bib']} />
-            ))}
+          <div className="relative z-10 max-w-5xl mx-auto">
+            <div className="flex justify-center md:block mb-4">
+              <ScrollReveal>
+                <SectionLabel number="10" label="Achievements & Milestones" />
+              </ScrollReveal>
+            </div>
+            <ScrollReveal delay={0.1}>
+              <h2 className="heading-lg mb-20 text-center md:text-left text-white">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Milestones</span> unlocked.
+              </h2>
+            </ScrollReveal>
+
+            <div className="relative">
+              {/* Central glowing timeline line */}
+              <div className="absolute top-0 bottom-0 left-[24px] md:left-1/2 w-[2px] -translate-x-[1px] bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" />
+              
+              <div className="space-y-4">
+                {ACHIEVEMENTS.map((a, i) => (
+                  <TimelineItem key={a.title} a={a} i={i} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -193,7 +205,7 @@ const CertificationsSection = () => {
       {lightboxImg && (
         <div className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onClick={() => setLightboxImg(null)}>
           <button className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors">
-            <X size={32} />
+            <X size={32} /> 
           </button>
           <img src={lightboxImg} alt="Certificate Full View" className="max-w-full max-h-[90vh] rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] object-contain" />
         </div>
@@ -203,33 +215,97 @@ const CertificationsSection = () => {
 };
 
 // Sub-component for Timeline Items
-const TimelineItem = ({ a, i, gifBg }: any) => {
+const TimelineItem = ({ a, i }: any) => {
   const isLeft = i % 2 === 0;
   return (
     <ScrollReveal delay={i * 0.1}>
-      <div className="relative flex items-center group w-full">
-        <div className="absolute left-[24px] md:left-1/2 w-10 h-10 -translate-x-1/2 flex items-center justify-center rounded-full bg-background border-4 border-primary/20 group-hover:border-primary group-hover:scale-110 transition-all duration-300 z-10 shadow-lg">
-          <div className="relative flex items-center justify-center w-3 h-3">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-50 group-hover:animate-ping" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary" />
-          </div>
+      <div className="relative flex items-center group/timeline w-full pb-8 md:pb-16 last:pb-0">
+        {/* Futuristic Timeline Dot */}
+        <div className="absolute left-[24px] md:left-1/2 w-8 h-8 -translate-x-1/2 flex items-center justify-center z-20">
+          <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-[8px] group-hover/timeline:bg-cyan-500/40 transition-colors duration-500" />
+          <div className="w-3 h-3 rounded-full bg-purple-500 border-2 border-[#050505] group-hover/timeline:bg-cyan-400 group-hover/timeline:shadow-[0_0_15px_rgba(34,211,238,0.8)] group-hover/timeline:scale-150 transition-all duration-300 will-change-transform" />
         </div>
 
-        <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${isLeft ? 'md:pr-14' : 'md:pl-14 md:ml-auto'}`}>
-          <div className="relative glass rounded-2xl p-6 md:p-8 glass-hover transition-all duration-500 group-hover:-translate-y-2 border border-border/50 group-hover:border-primary/50 overflow-hidden" 
-               style={{ background: gifBg ? `url(${gifBg})` : 'rgba(255, 255, 255, 1)', backgroundSize: 'cover', backgroundBlendMode: 'overlay', backgroundColor: 'rgba(255, 255, 255, 0)255, 0.5)' }}>
-            <div className={`absolute top-0 ${isLeft ? 'right-0' : 'left-0'} -mr-12 -mt-12 w-48 h-48 bg-primary/10 rounded-full blur-[50px] group-hover:bg-primary/20 transition-colors duration-500 pointer-events-none`} />
-            <div className="relative z-10">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-                <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary font-mono text-lg font-bold shrink-0 shadow-inner group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                  {String(i + 1).padStart(2, "0")}
+        {/* Desktop Wrapper handling exactly 2 halves */}
+        <div className="hidden md:flex w-full items-center relative z-10">
+           {isLeft ? (
+              <>
+                 {/* Left Half (The Card) */}
+                 <div className="w-1/2 flex justify-end pr-12 lg:pr-20">
+                    <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center z-20">
+                       <img src={cardFrame} className="absolute inset-0 w-full h-full object-contain pointer-events-none drop-shadow-[0_0_10px_rgba(168,85,247,0.2)] rotate-90" alt="Neon Frame" />
+                       <div className="relative z-10 flex flex-col items-center justify-center text-center px-8">
+                         <span className="font-mono text-cyan-400 text-xs font-black tracking-[0.2em] uppercase opacity-80 mb-2 drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]">
+                           Mission {String(i + 1).padStart(2, "0")}
+                         </span>
+                         <h4 className="text-lg font-bold text-white leading-tight drop-shadow-lg px-2 line-clamp-3">
+                           {a.title}
+                         </h4>
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Right Half (The Desc Popup) */}
+                 <div className="w-1/2 flex justify-start pl-12 lg:pl-20 relative items-center">
+                    <div className="w-[280px] lg:w-[320px] opacity-0 pointer-events-none transition-all duration-300 ease-out -translate-x-5 group-hover/timeline:translate-x-0 group-hover/timeline:opacity-100 bg-[#050505]/95 border border-purple-500/20 p-6 rounded-2xl shadow-[0_0_30px_rgba(168,85,247,0.15)] backdrop-blur-md">
+                       <p className="text-sm text-white/70 leading-relaxed font-medium">
+                         {a.desc}
+                       </p>
+                    </div>
+                 </div>
+              </>
+           ) : (
+              <>
+                 {/* Left Half (The Desc Popup) */}
+                 <div className="w-1/2 flex justify-end pr-12 lg:pr-20 relative items-center">
+                    <div className="w-[280px] lg:w-[320px] opacity-0 pointer-events-none transition-all duration-300 ease-out translate-x-5 group-hover/timeline:translate-x-0 group-hover/timeline:opacity-100 bg-[#050505]/95 border border-purple-500/20 p-6 rounded-2xl shadow-[0_0_30px_rgba(168,85,247,0.15)] backdrop-blur-md text-right">
+                       <p className="text-sm text-white/70 leading-relaxed font-medium">
+                         {a.desc}
+                       </p>
+                    </div>
+                 </div>
+
+                 {/* Right Half (The Card) */}
+                 <div className="w-1/2 flex justify-start pl-12 lg:pl-20">
+                    <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center z-20">
+                       <img src={cardFrame} className="absolute inset-0 w-full h-full object-contain pointer-events-none drop-shadow-[0_0_10px_rgba(168,85,247,0.2)] rotate-90" alt="Neon Frame" />
+                       <div className="relative z-10 flex flex-col items-center justify-center text-center px-8">
+                         <span className="font-mono text-cyan-400 text-xs font-black tracking-[0.2em] uppercase opacity-80 mb-2 drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]">
+                           Mission {String(i + 1).padStart(2, "0")}
+                         </span>
+                         <h4 className="text-lg font-bold text-white leading-tight drop-shadow-lg px-2 line-clamp-3">
+                           {a.title}
+                         </h4>
+                       </div>
+                    </div>
+                 </div>
+              </>
+           )}
+        </div>
+
+        {/* Mobile View */}
+        <div className="md:hidden w-full pl-[56px] pr-4 flex flex-col justify-center relative">
+           <div className="relative w-full max-w-[260px] aspect-square flex items-center justify-center z-20">
+              <img src={cardFrame} className="absolute inset-0 w-full h-full object-contain pointer-events-none drop-shadow-[0_0_10px_rgba(168,85,247,0.2)] rotate-90" alt="Neon Frame" />
+              
+              <div className="relative z-10 flex flex-col items-center justify-center text-center px-8">
+                <span className="font-mono text-cyan-400 text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase opacity-80 mb-2 drop-shadow-md">
+                  Mission {String(i + 1).padStart(2, "0")}
                 </span>
-                <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">{a.title}</h4>
+                <h4 className="text-sm sm:text-base font-bold text-white leading-tight px-2 line-clamp-3">
+                  {a.title}
+                </h4>
               </div>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{a.desc}</p>
-            </div>
-            <div className={`absolute bottom-0 h-1 bg-gradient-to-r from-primary to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out ${isLeft ? 'left-0' : 'right-0'}`} />
-          </div>
+           </div>
+
+           {/* Mobile Expanding Description (Fade Down) */}
+           <div className="w-full max-w-[260px] mt-2 opacity-0 h-0 overflow-hidden pointer-events-none group-hover/timeline:opacity-100 group-hover/timeline:h-auto group-hover/timeline:pointer-events-auto transition-all duration-300">
+              <div className="bg-[#050505]/95 border border-cyan-500/30 p-4 rounded-xl backdrop-blur-md shadow-2xl mt-4">
+                 <p className="text-xs text-white/70 leading-relaxed font-medium text-center">
+                   {a.desc}
+                 </p>
+              </div>
+           </div>
         </div>
       </div>
     </ScrollReveal>

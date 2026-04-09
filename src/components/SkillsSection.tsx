@@ -314,6 +314,7 @@ const SkillsSection = () => {
                           style={{
                             x: orbit.radiusX,
                             y: 0,
+                            willChange: "transform",
                           }}
                           initial={{ rotate: -angleOffset }}
                           animate={{

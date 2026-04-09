@@ -3,20 +3,16 @@ import { ArrowDown, Github, Linkedin, Youtube, Mail } from "lucide-react";
 import heroPhoto from "@/assets/my.png";
 import foxLogo from "@/assets/redfox-logo.jpg";
 import { assetsMap } from '../assetsMap';
+import InteractiveGrid from "./InteractiveGrid";
 
 
 
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-white grid-bg overflow-hidden">
-      {/* Floating elements */}
-      <div className="floating-element top-20 left-10 w-20 h-20 border border-primary/20 rounded-full animate-float" />
-      <div className="floating-element top-40 right-20 w-32 h-32 border border-primary/10 rounded-full animate-float" style={{ animationDelay: "2s" }} />
-      <div className="floating-element bottom-40 left-1/4 w-16 h-16 bg-primary/5 rounded-lg rotate-45 animate-float" style={{ animationDelay: "4s" }} />
-      <div className="floating-element top-1/3 right-1/3 w-2 h-2 bg-primary rounded-full animate-pulse-glow" />
-      <div className="floating-element bottom-1/3 left-1/3 w-3 h-3 bg-primary rounded-full animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-
+    <section className="relative min-h-screen flex flex-col justify-center bg-black overflow-hidden">
+      <InteractiveGrid />
+     
       {/* Gradient orb */}
       <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 -left-32 w-64 h-64 bg-primary/3 rounded-full blur-[100px]" />
@@ -64,10 +60,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="heading-xl mb-6"
+              className="heading-xl mb-8 relative"
             >
+              <div className="absolute -left-10 top-0 w-24 h-24 bg-primary/20 blur-[60px] -z-10 animate-pulse" />
               <span
-                className="kt whitespace-nowrap block mb-2"
+                className="kt whitespace-nowrap block mb-4"
                 style={{
                   backgroundImage: `url(${assetsMap['g8']})`,
                   animation: 'moveBg 12s linear infinite'
@@ -78,15 +75,13 @@ const HeroSection = () => {
                 ))}
               </span>
               <span
-                className=" block leading-none"
+                className="block leading-none font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff8c00] via-[#ffb347] to-[#ff8c00] animate-shimmer"
                 style={{
-
-                  color: 'lightgreen',
+                  backgroundSize: '200% auto',
                 }}
               >
                 V
               </span>
-
             </motion.h1>
 
             <motion.p
@@ -121,42 +116,77 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right - Photo */}
+          {/* Right - Profile Photo with Ultra-Liquid Glass Effect */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="relative flex justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative">
-
-              {/* Profile Card — Static, lightweight */}
-
-              <img
-                src={heroPhoto}
-                alt="Kirubalan V"
-                className="w-full h-full object-cover"
-                loading="eager"
-                fetchPriority="high"
-                style={{ borderBottomLeftRadius: "40px", borderBottomRightRadius: "40px", borderTopRightRadius: "40", borderTopLeftRadius: "40" }} />
-
-
-              {/* Floating card */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-6 -left-6 glass-strong rounded-xl px-4 py-3"
+            <div className="relative group">
+              {/* 🧪 The Ultra-Liquid Glass Card */}
+              <motion.div 
+                whileHover={{ rotateY: -8, rotateX: 4, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                className="relative w-72 h-[420px] md:w-[380px] md:h-[520px] rounded-[48px] overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.6)] border border-white/20 z-10"
               >
-                <p className="font-mono text-xs text-primary">15 repos</p>
-                <p className="text-xs text-muted-foreground">on GitHub</p>
+                {/* 🌊 Internal Liquid Layer (Amber/Orange) */}
+                <div className="absolute inset-0 z-0 opacity-50 mix-blend-screen pointer-events-none">
+                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/30 via-transparent to-orange-600/20 animate-pulse" />
+                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,165,0,0.2),transparent_70%)]" />
+                </div>
+
+                {/* 🧊 Deep Glass Blur */}
+                <div className="absolute inset-0 backdrop-blur-[40px] bg-white/[0.03]" />
+
+                {/* 👤 Profile Image */}
+                <img
+                  src={heroPhoto}
+                  alt="Kirubalan V"
+                  className="absolute inset-0 w-full h-full object-cover object-center z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+
+                {/* ✨ Pro Shine Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-20" />
+                
+                {/* Border Highlights */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent z-20" />
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent z-20" />
               </motion.div>
+
+              {/* 🔥 Fiery Orbital Lights */}
+              <div className="absolute -inset-10 bg-amber-500/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
+              <div className="absolute -inset-10 bg-orange-600/10 blur-[100px] rounded-full translate-x-12 translate-y-12 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
+
+              {/* 🏷️ Floating Pro Badges (Amber Theme) */}
               <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="absolute -top-4 -right-4 glass-strong rounded-xl px-4 py-3"
+                animate={{ y: [-15, 15, -15], rotate: [-1, 1, -1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-12 backdrop-blur-2xl bg-black/40 rounded-3xl px-6 py-4 border border-white/10 shadow-2xl z-30"
               >
-                <p className="font-mono text-xs text-primary">2K+ subs</p>
-                <p className="text-xs text-muted-foreground">YouTube</p>
+                <div className="flex items-center gap-3">
+                   <div className="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.8)] animate-pulse" />
+                   <div>
+                    <p className="font-mono text-xs font-black text-amber-500 uppercase tracking-widest">15+ Repos</p>
+                    <p className="text-[10px] text-white/40 font-bold tracking-tighter">GITHUB REPOSITORY</p>
+                   </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [15, -15, 15], rotate: [1, -1, 1] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-10 -right-8 backdrop-blur-2xl bg-black/40 rounded-3xl px-6 py-4 border border-white/10 shadow-2xl z-30"
+              >
+                <div className="flex items-center gap-3">
+                   <div className="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)] animate-pulse" />
+                   <div>
+                    <p className="font-mono text-xs font-black text-orange-500 uppercase tracking-widest">2.8K Sub</p>
+                    <p className="text-[10px] text-white/40 font-bold tracking-tighter">YT CHANNEL ACCESS</p>
+                   </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>

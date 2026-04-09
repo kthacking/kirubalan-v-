@@ -176,10 +176,7 @@
     color: hsl(var(--primary-foreground));
   }
 
-  .floating-element {
-    @apply absolute pointer-events-none select-none opacity-20;
-  }
-
+ 
   .card-project {
     @apply glass rounded-2xl overflow-hidden transition-all duration-500;
   }
@@ -375,3 +372,12 @@
   -webkit-text-fill-color: transparent;
 }
 
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
