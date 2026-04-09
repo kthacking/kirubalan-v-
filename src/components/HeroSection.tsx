@@ -78,15 +78,10 @@ const HeroSection = () => {
                 ))}
               </span>
               <span 
-                className="klk block leading-none"
+                className=" block leading-none"
                 style={{ 
-                  backgroundImage: `url('https://ppimjedtipxouzohfrmv.supabase.co/storage/v1/object/public/portfolio-assets/gif/yu.gif')`,
-                  backgroundSize: 'cover',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  color: 'transparent',
-                  WebkitTextFillColor: 'transparent',
-                  animation: 'moveBg 8s linear infinite reverse'
+                 
+                  color:'lightgreen',
                 }}
               >
                 V
@@ -135,28 +130,16 @@ const HeroSection = () => {
           >
             <div className="relative">
 
-              {/* 3D Premium Flip Card */}
-              <div className="w-72 h-72 md:w-96 md:h-96 transition-transform duration-500 hover:scale-105 will-change-transform z-10 cursor-pointer">
-                <div className="w-full h-full flip-card">
-                  <div className="flip-inner shadow-2xl rounded-2xl">
-
-                    {/* Front Side */}
-                    <div className="flip-front rounded-2xl overflow-hidden glass border border-white/10 relative" style={{ background: assetsMap['g10'] ? `url(${assetsMap['g10']})` : 'rgba(255,255,255,0.05)', backgroundPosition: "center", backgroundSize: "cover", backgroundPositionX: "[180px]" }}>
-                      <img 
-                        src={heroPhoto} 
-                        alt="Kirubalan V" 
-                        className="w-full h-full object-cover" 
-                        loading="eager" 
-                        fetchPriority="high"
-                      />
-                    </div>
-
-                    {/* Back Side */}
-                    <div className="flip-back rounded-2xl overflow-hidden glass  border border-primary/30 relative" style={{ background: `url(${assetsMap['g17']})`, backgroundPosition: "center", backgroundSize: "cover" }}>
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-80 mix-blend-overlay pointer-events-none" />
-                    </div>
-
-                  </div>
+              {/* Profile Card — Static, lightweight */}
+              <div className="w-72 h-72 md:w-96 md:h-96 z-10">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-black/5">
+                  <img 
+                    src={heroPhoto} 
+                    alt="Kirubalan V" 
+                    className="w-full h-full object-cover" 
+                    loading="eager" 
+                    fetchPriority="high"
+                  />
                 </div>
               </div>
               {/* Floating card */}

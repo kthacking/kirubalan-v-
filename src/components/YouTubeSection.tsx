@@ -1,6 +1,7 @@
+import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
-import { Youtube, MonitorPlay, Smartphone } from "lucide-react";
+import { Youtube, MonitorPlay, Smartphone, Play } from "lucide-react";
 import { assetsMap } from '../assetsMap';
 
 
@@ -26,6 +27,55 @@ const timeline = [
   { label: "Relaunched", value: 'Rebuilt with disclaimers — "KT Hacking"' },
   { label: "Current", value: "Active channel, paused uploads — focused on dev work" },
 ];
+
+/**
+ * Lite YouTube Embed — shows a static thumbnail and only loads
+ * the heavy iframe when the user clicks play.
+ * Eliminates ERR_QUIC_PROTOCOL_ERROR caused by YouTube's QUIC thumbnail fetches.
+ */
+const LiteYouTube = ({ id, isShort = false }: { id: string; isShort?: boolean }) => {
+  const [active, setActive] = useState(false);
+
+  if (active) {
+    return (
+      <iframe
+        className="absolute inset-0 w-full h-full"
+        src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <button
+      className="absolute inset-0 w-full h-full cursor-pointer group/play bg-black"
+      onClick={() => setActive(true)}
+      aria-label={`Play video ${id}`}
+    >
+      {/* Thumbnail — uses img.youtube.com which serves over standard HTTPS (no QUIC) */}
+      <img
+        src={isShort 
+          ? `https://img.youtube.com/vi/${id}/mqdefault.jpg`
+          : `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+        }
+        alt=""
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/30 group-hover/play:bg-black/20 transition-colors duration-300" />
+      {/* Play button */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-600/90 group-hover/play:bg-red-600 group-hover/play:scale-110 transition-all duration-300 flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.4)]">
+          <Play size={28} className="text-white ml-1" fill="white" />
+        </div>
+      </div>
+    </button>
+  );
+};
 
 const YouTubeSection = () => (
   <section className="theme-light bg-background text-foreground py-32 section-padding relative overflow-hidden">
@@ -59,14 +109,14 @@ const YouTubeSection = () => (
             <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
             {/* Ambient light glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-[#FFE800]/20 blur-[70px]"></div>
-            <img src={assetsMap['1775494829Jpg']} alt="" loading="lazy" />
+            <img src={assetsMap['1775494829Jpg']} alt="" loading="lazy" onError={(e) => (e.currentTarget.style.display = 'none')} />
           </div>
           
           {/* Channel Info */}
           <div className="px-6 md:px-12 pb-8 md:pb-12 relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 -mt-16 md:-mt-20">
             {/* Avatar */}
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-background bg-zinc-900 flex items-center justify-center overflow-hidden shadow-xl relative z-10 flex-shrink-0">
-            <img src="public/photos/cp.jpg" alt="" loading="lazy" />
+            <img src={assetsMap['cp'] || "public/photos/cp.jpg"} alt="KT Hacking" loading="lazy" onError={(e) => (e.currentTarget.src = 'https://ui-avatars.com/api/?name=KT&background=FF0000&color=fff')} />
             </div>
 
             {/* Stats & Actions */}
@@ -106,15 +156,8 @@ const YouTubeSection = () => (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map((id, idx) => (
               <div key={idx} className="glass rounded-2xl overflow-hidden shadow-sm group hover:-translate-y-1 transition-transform duration-300 border border-border/40">
-                <div className="w-full aspect-video relative bg-zinc-100">
-                  <iframe 
-                    className="absolute inset-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${id}`} 
-                    title="YouTube video player" 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen
-                  ></iframe>
+                <div className="w-full aspect-video relative bg-zinc-900">
+                  <LiteYouTube id={id} />
                 </div>
               </div>
             ))}
@@ -134,15 +177,8 @@ const YouTubeSection = () => (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl">
             {shorts.map((id, idx) => (
               <div key={idx} className="glass rounded-2xl overflow-hidden shadow-sm group hover:-translate-y-1 transition-transform duration-300 border border-border/40 mx-auto w-full max-w-[320px]">
-                <div className="w-full aspect-[9/16] relative bg-zinc-100">
-                  <iframe 
-                    className="absolute inset-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${id}`} 
-                    title="YouTube short player" 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen
-                  ></iframe>
+                <div className="w-full aspect-[9/16] relative bg-zinc-900">
+                  <LiteYouTube id={id} isShort />
                 </div>
               </div>
             ))}
