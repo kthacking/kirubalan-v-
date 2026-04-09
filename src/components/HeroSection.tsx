@@ -127,7 +127,7 @@ const HeroSection = () => {
                   <div className="flip-inner shadow-2xl rounded-2xl">
 
                     {/* Front Side */}
-                    <div className="flip-front rounded-2xl overflow-hidden glass  border border-white/10 relative" style={{ background: `url(${assetsMap['g10']})`, backgroundPosition: "center", backgroundSize: "cover", backgroundPositionX: "-20px" }}>
+                    <div className="flip-front rounded-2xl overflow-hidden glass  border border-white/10 relative" style={{ background: `url(${assetsMap['g10']})`, backgroundPosition: "center", backgroundSize: "cover", backgroundPositionX: "-90px" }}>
                       <img src={heroPhoto} alt="Kirubalan V" className="w-full h-full object-cover " />
                     </div>
 
