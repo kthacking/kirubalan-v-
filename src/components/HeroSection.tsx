@@ -131,17 +131,16 @@ const HeroSection = () => {
             <div className="relative">
 
               {/* Profile Card — Static, lightweight */}
-              <div className="w-72 h-72 md:w-96 md:h-96 z-10">
-                <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-black/5">
+             
                   <img 
                     src={heroPhoto} 
                     alt="Kirubalan V" 
                     className="w-full h-full object-cover" 
                     loading="eager" 
                     fetchPriority="high"
-                  />
-                </div>
-              </div>
+                   style={{borderBottomLeftRadius:"40px",borderBottomRightRadius:"40px",borderTopRightRadius:"40",borderTopLeftRadius:"40"}}/>
+                
+              
               {/* Floating card */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
