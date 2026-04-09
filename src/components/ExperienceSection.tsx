@@ -54,12 +54,12 @@ const ExperienceSection = () => (
             </div>
 
             <div className="mb-6">
-              <p className="label-text mb-2">How He Got In</p>
-              <p className="body-text">Cracked the interview at VDart — one of his proudest achievements. Had his own laptop and mouse at the office. It felt like real work from day one.</p>
+              <p className="label-text mb-2">How I Got There</p>
+              <p className="body-text">Cracking the interview at VDart remains one of my proudest achievements. I worked with my own dedicated setup from day one and it felt like real work from the very beginning.</p>
             </div>
 
             <div className="mb-6">
-              <p className="label-text mb-3">What He Did</p>
+              <p className="label-text mb-3">What I Delivered</p>
               <div className="space-y-2">
                 {duties.map((d, i) => (
                   <div key={i} className="flex items-start gap-3">

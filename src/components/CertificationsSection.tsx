@@ -237,12 +237,12 @@ const TimelineItem = ({ a, i, gifBg }: any) => {
 };
 
 const ACHIEVEMENTS = [
-  { title: "VDart Internship", desc: "Cracked the interview. Completed 3-month full-stack internship. Had his own dedicated workstation at the office." },
-  { title: "Bug Bounty", desc: "Found and reported a real security bug in his college's EDU website. Responsible disclosure. Real-world security impact." },
+  { title: "VDart Internship", desc: "Cracked the interview. Completed 3-month full-stack internship. I worked with my own dedicated setup from day one." },
+  { title: "Bug Bounty", desc: "Found and reported a real security bug in my college's EDU website. Responsible disclosure. Real-world security impact." },
   { title: "YouTube — KT Hacking", desc: "Built a hacking channel from zero to 2,000–3,000 subscribers. Rebuilt from scratch after termination. Resilience in action." },
   { title: "Tools Used by Friends & Peers", desc: "Friends and peers actively use ZIPStruct and QuickEdi in real workflows. Real-world adoption is the ultimate validation." },
   { title: "LinkedIn Recognition", desc: "Posted tools on LinkedIn. Received congratulations and community engagement. Built a professional presence through shipped work." },
-  { title: "DThub Ecosystem", desc: "Created and named his own developer ecosystem. ZIPStruct is officially branded as 'Part of the DThub Ecosystem.'" },
+  { title: "DThub Ecosystem", desc: "I've created and architected my own developer ecosystem. ZIPStruct is officially branded as 'Part of the DThub Ecosystem.'" },
   { title: "QuickEdi GitHub Star", desc: "Received a GitHub star on QuickEdi (Nexus Builder). First external recognition for the visual site builder." },
   { title: "Self-Taught Journey", desc: "Complete self-directed path: game hacker in 6th grade → professional full-stack developer in 2025. 100% curiosity-driven." },
   { title: "College Web Project", desc: "Developed a full web project during college — beyond curriculum requirements.                                               ." },

@@ -87,7 +87,7 @@ const YouTubeSection = () => (
                 </a>
               </div>
               <p className="body-text mt-4 max-w-3xl leading-relaxed">
-                Kirubalan originally started as a gaming content creator in 6th grade. The first channel evolved into a hacking channel, was later terminated, but rebuilt safely from scratch as "KT Hacking". Now focused on software development and building tools while leaving the videos online for education.
+                I originally started as a gaming content creator in 6th grade. My first channel evolved into a hacking channel, which was later terminated, but I rebuilt it safely from scratch as "KT Hacking". Now, I'm focused on software development and building tools while leaving the videos online for education.
               </p>
             </div>
           </div>

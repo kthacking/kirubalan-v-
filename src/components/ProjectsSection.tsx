@@ -13,7 +13,7 @@ const projects: Project[] = [
     commits: 27,
     languages: "JavaScript 62.2% · HTML 21.4% · CSS 16.4%",
     techStack: "Vanilla HTML5, CSS3, JavaScript — ZERO framework dependencies",
-    story: "Kirubalan couldn't afford Canva's premium features. Instead of paying, he built his own version — a mini Canva that lets you pick pre-built components like cards and navbars, or type what you want and it generates it automatically. What started as a personal learning project evolved into a full professional visual site builder with 20+ theme presets, complete animation systems, a real export engine, and an AI command bar (Beta).",
+    story: "I couldn't afford Canva's premium features, so instead of paying, I built my own version. What started as a mini Canva to pick pre-built components or generate them via text evolved into a full professional visual site builder with 20+ theme presets, complete animation systems, a real export engine, and an AI command bar (Beta).",
     solves: "The gap between designers and developers. Non-technical users can build websites visually. Developers can prototype instantly without writing boilerplate.",
     features: [
       "Drag & Drop from 'The Depot' component library onto a live canvas",
@@ -61,7 +61,7 @@ const projects: Project[] = [
     commits: 8,
     languages: "JavaScript 48.8% · CSS 32.4% · HTML 18.8%",
     techStack: "HTML5, CSS3, Vanilla JS (ES6+), JSZip, FontAwesome",
-    story: "Every time Kirubalan started a new project, he wasted time manually creating folders and files. ZIPStruct eliminates all that friction — visualize and create the full file structure, edit it, zip it, and start coding without manual setup.",
+    story: "Every time I started a new project, I found myself wasting time manually creating folders and files. I built ZIPStruct to eliminate all that friction — it lets you visualize and create the full file structure, edit it, zip it, and start coding without any manual setup.",
     solves: "Developer setup time and project scaffolding friction. Paste an ASCII tree or build visually, hit export, get your ZIP, start coding immediately.",
     features: [
       "Visual Structure Builder — interactively add folders and files",
@@ -83,7 +83,7 @@ const projects: Project[] = [
     commits: 8,
     languages: "JavaScript 57.4% · CSS 28.1% · HTML 14.5%",
     techStack: "Vanilla JavaScript, Chrome Extension API (Manifest V3)",
-    story: "Kirubalan uses Chrome DevTools every single day to inspect and learn from other websites. web_edit_Extensions takes that one step further — instead of just reading styles, you can drag, resize, and redesign any element on any live webpage in real time. Figma-level control, directly in the browser.",
+    story: "I use Chrome DevTools every single day to inspect and learn from other websites. I took that one step further with web_edit_Extensions — instead of just reading styles, you can drag, resize, and redesign any element on any live webpage in real time, bringing Figma-level control directly into the browser.",
     solves: "Live web editing without opening a design tool. Useful for developers testing UI changes, designers reviewing layouts on live sites.",
     features: [
       "Move any DOM element anywhere on the page by dragging",

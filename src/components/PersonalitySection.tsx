@@ -10,8 +10,8 @@ const traits = [
   { title: "Night Owl Coder", desc: "Best work happens after midnight. Deep focus, no distractions, pure build mode. Most commits pushed in late-night sessions.", icon: "🦉" },
   { title: "Problem Solver Mindset", desc: "Every project started with a real personal problem: Couldn't afford Canva premium → Built QuickEdi. Needed project scaffolding fast → Built ZIPStruct. Aadhaar update was hard → Built Doorstep. Wanted to edit any live webpage → Built web_edit_Extensions.", icon: "🧩" },
   { title: "Design-Obsessed Developer", desc: "Uses Chrome DevTools every single day to inspect and reverse-engineer how other sites style things. Uses Stitch (Figma alternative) for design mockups. Uses Flux for AI image generation. Cares deeply about how things LOOK, not just how they work.", icon: "🎨" },
-  { title: "Curious By Nature", desc: "GTA → Cheat Engine → TG32 → Kali Linux → Web Dev → Tool Builder. Curiosity is the engine. Every phase of his journey was self-directed.", icon: "🔍" },
-  { title: "Builder Over Talker", desc: "Friends actually use the tools he builds. That is the real measure of success. Real-world adoption > GitHub stars.", icon: "🏗" },
+  { title: "Curious By Nature", desc: "GTA → Cheat Engine → TG32 → Kali Linux → Web Dev → Tool Builder. Curiosity is the engine. Every phase of my journey has been self-directed.", icon: "🔍" },
+  { title: "Builder Over Talker", desc: "Friends actually use the tools I build. That is the real measure of success. Real-world adoption > GitHub stars.", icon: "🏗" },
   { title: "Growing Fast", desc: "Currently learning React/Next.js and Three.js/WebGL to level up from vanilla JS. Using Antigravity AI tools to accelerate learning of new technologies.", icon: "🚀" },
 ];
 

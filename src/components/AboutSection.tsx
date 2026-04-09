@@ -43,7 +43,7 @@ const AboutSection = () => {
           <div className="space-y-6">
             <ScrollReveal delay={0.3}>
               <p className="body-text">
-                Completed a 3-month full-stack internship at <span className="text-foreground font-semibold">VDart</span>, found a bug in his college's EDU website, runs a YouTube channel (<span className="text-primary">KT Hacking</span>) with 2,000–3,000 subscribers, and built tools that his friends and peers actively use.
+                Completed a 3-month full-stack internship at <span className="text-foreground font-semibold">VDart</span>, found a bug in my college's EDU website, run a YouTube channel (<span className="text-primary">KT Hacking</span>) with 2,000–3,000 subscribers, and built tools that my friends and peers actively use.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.4}>
