@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import HeroSection from "@/components/HeroSection";
 import MarqueeStrip from "@/components/MarqueeStrip";
+import FluidBackground from "@/components/FluidBackground";
 
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const OriginStorySection = lazy(() => import("@/components/OriginStorySection"));

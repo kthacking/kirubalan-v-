@@ -31,11 +31,11 @@ const HeroSection = () => {
         >
           <div className="flex items-center gap-3">
             <div id="fox-logo-slot" className="w-8 h-8 rounded-full overflow-hidden">
-              <img 
-                id="fox-logo-static" 
-                src={foxLogo} 
-                alt="REDFOX" 
-                className="w-full h-full object-cover rounded-full transition-opacity duration-300" 
+              <img
+                id="fox-logo-static"
+                src={foxLogo}
+                alt="REDFOX"
+                className="w-full h-full object-cover rounded-full transition-opacity duration-300"
                 style={{ opacity: 0, mixBlendMode: "multiply" }}
               />
             </div>
@@ -66,9 +66,9 @@ const HeroSection = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="heading-xl mb-6"
             >
-              <span 
-                className="kt whitespace-nowrap block mb-2" 
-                style={{ 
+              <span
+                className="kt whitespace-nowrap block mb-2"
+                style={{
                   backgroundImage: `url(${assetsMap['g8']})`,
                   animation: 'moveBg 12s linear infinite'
                 }}
@@ -77,11 +77,11 @@ const HeroSection = () => {
                   <span key={i} className="kigif">{letter}</span>
                 ))}
               </span>
-              <span 
+              <span
                 className=" block leading-none"
-                style={{ 
-                 
-                  color:'lightgreen',
+                style={{
+
+                  color: 'lightgreen',
                 }}
               >
                 V
@@ -131,16 +131,16 @@ const HeroSection = () => {
             <div className="relative">
 
               {/* Profile Card — Static, lightweight */}
-             
-                  <img 
-                    src={heroPhoto} 
-                    alt="Kirubalan V" 
-                    className="w-full h-full object-cover" 
-                    loading="eager" 
-                    fetchPriority="high"
-                   style={{borderBottomLeftRadius:"40px",borderBottomRightRadius:"40px",borderTopRightRadius:"40",borderTopLeftRadius:"40"}}/>
-                
-              
+
+              <img
+                src={heroPhoto}
+                alt="Kirubalan V"
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                style={{ borderBottomLeftRadius: "40px", borderBottomRightRadius: "40px", borderTopRightRadius: "40", borderTopLeftRadius: "40" }} />
+
+
               {/* Floating card */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
