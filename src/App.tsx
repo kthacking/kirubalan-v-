@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import VDartJourney from "./pages/VDartJourney.tsx";
+import { ClientProtection } from "./components/ClientProtection";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ClientProtection />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
